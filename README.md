@@ -1,2 +1,2 @@
 # gingonicex1
-example rest api using GO gin gonic framework 
+An Example Rest Api using Go's Gin Gonic framework
