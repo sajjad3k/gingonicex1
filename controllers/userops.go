@@ -90,14 +90,17 @@ func Deleteuser(c *gin.Context) {
 		c.AbortWithStatus(http.StatusBadRequest)
 	} else {
 		var v models.User
+		var out []models.user
 		var b bool
-		for i, val := range records {
+		for _, val := range records {
 			if val.Id == id {
 				v = val
-				records[i] = records[i+1]
 				b = true
+				continue
 			}
+			out = append(out, val)
 		}
+		records = out
 		if b != false {
 			c.JSON(http.StatusOK, v)
 		} else {
